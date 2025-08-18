@@ -14,6 +14,7 @@ This project is done **manually from AWS Console (no Terraform)** to practice AW
 
 ## 🛠 Architecture
 Architecture Diagram
+
 https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
 
 
@@ -29,14 +30,23 @@ Create VPC & Networking
 ---
 ## Launch EC2
 https://i.postimg.cc/L681pFrF/1.png
+
 https://i.postimg.cc/33bg3W8S/2.png
+
 https://i.postimg.cc/c007mVkm/3.png
+
 https://i.postimg.cc/VzNqyX80/4.png
+
 https://i.postimg.cc/rwdRDCVh/5.png
+
 https://i.postimg.cc/mD4PpvQq/6.png
+
 https://i.postimg.cc/x8TcnLp3/7.png
+
 https://i.postimg.cc/76NfFK9L/8.png
+
 https://i.postimg.cc/2yc363PR/9.png
+
 https://i.postimg.cc/kMf2whD1/10.png
 
 ---
@@ -45,16 +55,27 @@ https://i.postimg.cc/kMf2whD1/10.png
 Security Groups
 - `web-sg`: Allow **HTTP (80)** from `0.0.0.0/0`, **SSH (22)** only from your IP.
 - `alb-sg`: Allow HTTP (80) from `0.0.0.0/0`, forward to `web-sg`.
+- 
 https://i.postimg.cc/3Jf30sW-h/1.png
+
 https://i.postimg.cc/YSY7VjR2/2.png
+
 https://i.postimg.cc/Xq70pLbX/3.png
+
 https://i.postimg.cc/KzbbyFpP/4.png
+
 https://i.postimg.cc/fLvNzF16/5.png
+
 https://i.postimg.cc/6qjxRZWc/6.png
+
 https://i.postimg.cc/QMrwFmgs/7.png
+
 https://i.postimg.cc/zGh4D6g0/8.png
+
 https://i.postimg.cc/vBYKzmSN/9.png
+
 https://i.postimg.cc/5tqGLzpz/10.png
+
 https://i.postimg.cc/Zn0DGMmP/11.png
 
 ---
@@ -84,10 +105,15 @@ Security groups: proj1-alb-sg
 Listeners and routing:
 
 Listener: HTTP : 80 → Default action: Forward to proj1-tg
+
 https://i.postimg.cc/CSXCbz83/1.png
+
 https://i.postimg.cc/6WWCBRsv/2.png
+
 https://i.postimg.cc/FK9kst64/3.png
+
 https://i.postimg.cc/R0X6Wsrn/4.png
+
 https://i.postimg.cc/nrQCwnXv/5.png
 ---
 Auto Scaling Group
@@ -128,42 +154,72 @@ Target value: 50%
 Instance warmup: 180 sec
 
 Monitoring: Enable CloudWatch group metrics collection
+
 https://i.postimg.cc/3Jf30sW-h/1.png
+
 https://i.postimg.cc/YSY7VjR2/2.png
+
 https://i.postimg.cc/Xq70pLbX/3.png
+
 https://i.postimg.cc/KzbbyFpP/4.png
+
 https://i.postimg.cc/fLvNzF16/5.png
+
 https://i.postimg.cc/6qjxRZWc/6.png
+
 https://i.postimg.cc/QMrwFmgs/7.png
+
 https://i.postimg.cc/zGh4D6g0/8.png
+
 https://i.postimg.cc/vBYKzmSN/9.png
+
 https://i.postimg.cc/JR9Lwckp/10.png
+
 https://i.postimg.cc/Zn0DGMmP/11.png
 
 ```
 RDS
 https://i.postimg.cc/FRS2z689/1.png
+
 https://i.postimg.cc/1XZbqH1D/2.png
+
 https://i.postimg.cc/tgs0QJzn/3.png
+
 https://i.postimg.cc/1z2k9SW-C/4.png
+
 https://i.postimg.cc/GLZRRFVL/5.png
+
 https://i.postimg.cc/BZxrGd2p/6.png
+
 https://i.postimg.cc/fTC1Vm20/7.png
+
 https://i.postimg.cc/cL5jmZNx/8.png
+
 https://i.postimg.cc/3JYPrnBT/9.png
+
 https://i.postimg.cc/wjBZLMZ4/10.png
+
 
 
 ```
 CloudWatch + SNS 
+
 https://i.postimg.cc/PqTLSGb7/1.png
+
 https://i.postimg.cc/zBfy1ncS/2.png
+
 https://i.postimg.cc/W1RqJqdT/3.png
+
 https://i.postimg.cc/5tgXGPn2/4.png
+
 https://i.postimg.cc/sX0vfMFF/5.png
+
 https://i.postimg.cc/yxgWD7BD/6.png
+
 https://i.postimg.cc/WzBzrxbX/7.png
+
 https://i.postimg.cc/xjhcWNyM/8.png
+
 https://i.postimg.cc/BQFXsZMy/9.png
 
 
