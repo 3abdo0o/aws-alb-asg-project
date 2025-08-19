@@ -22,16 +22,13 @@ https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
 ![Image](https://github.com/user-attachments/assets/aa184ebe-f10b-4282-b0d8-a140c9f3e064)
 
 ---
+## Launch EC2 & Create VPC & Networking
 
-Create VPC & Networking
 - Create a new VPC (e.g., `10.0.0.0/16`).
 - Create **2 public subnets** in different AZs.
 - Create **Internet Gateway** and attach to VPC.
 - Add **Route Table** to allow internet access.
-
-
----
-## Launch EC2
+- Launch EC2
 
 <img width="1680" height="862" alt="Image" src="https://github.com/user-attachments/assets/33d26508-7fb2-44a4-9e3a-c9aa26aeae3d" />
 
@@ -59,28 +56,30 @@ Create VPC & Networking
 Security Groups
 - `web-sg`: Allow **HTTP (80)** from `0.0.0.0/0`, **SSH (22)** only from your IP.
 - `alb-sg`: Allow HTTP (80) from `0.0.0.0/0`, forward to `web-sg`.
-- 
-https://i.postimg.cc/3Jf30sW-h/1.png
+--------
+Auto Scaling Group
 
-https://i.postimg.cc/YSY7VjR2/2.png
+<img width="1391" height="334" alt="Image" src="https://github.com/user-attachments/assets/6b0131ea-ecff-4bec-85f4-725ac0bc48df" />
 
-https://i.postimg.cc/Xq70pLbX/3.png
+<img width="1356" height="744" alt="Image" src="https://github.com/user-attachments/assets/7f065896-afc1-4328-95c4-27317d7505a6" />
 
-https://i.postimg.cc/KzbbyFpP/4.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/1a618ee4-1047-431f-8e48-6b98858a0b4f" />
 
-https://i.postimg.cc/fLvNzF16/5.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/d963e564-cd03-4ae8-b498-069d8a7fb7db" />
 
-https://i.postimg.cc/6qjxRZWc/6.png
+<img width="1620" height="719" alt="Image" src="https://github.com/user-attachments/assets/f14da0c8-4a19-494d-9b41-8d4a68d3a4cb" />
 
-https://i.postimg.cc/QMrwFmgs/7.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/eb631e8a-e730-4bf6-a5a7-4593c3dd96d5" />
 
-https://i.postimg.cc/zGh4D6g0/8.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/6c0f1cb3-a0bb-4974-863e-6f0771fc15fa" />
 
-https://i.postimg.cc/vBYKzmSN/9.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/5ceae015-4813-4d14-8fda-9bdaa7f75e3f" />
 
-https://i.postimg.cc/5tqGLzpz/10.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/323e5b54-05ca-42a1-b543-7b0ecb023365" />
 
-https://i.postimg.cc/Zn0DGMmP/11.png
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/0ac149d4-1f5d-4d9a-b00f-8a31716abc87" />
+
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/20e6ab09-0138-456a-a847-81e0ad71f65c" />
 
 ---
 
