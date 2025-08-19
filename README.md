@@ -16,6 +16,8 @@ This project is done **manually from AWS Console (no Terraform)** to practice AW
 Architecture Diagram
 
 https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
+ ![image alt]([image_url](https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
+)) 
 
 
 ---
