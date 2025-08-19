@@ -32,25 +32,26 @@ Create VPC & Networking
 
 ---
 ## Launch EC2
-https://i.postimg.cc/L681pFrF/1.png
 
-https://i.postimg.cc/33bg3W8S/2.png
+<img width="1680" height="862" alt="Image" src="https://github.com/user-attachments/assets/33d26508-7fb2-44a4-9e3a-c9aa26aeae3d" />
 
-https://i.postimg.cc/c007mVkm/3.png
+<img width="1680" height="897" alt="Image" src="https://github.com/user-attachments/assets/540e868b-d1bd-42e0-bd2e-ad11e5b8ce3a" />
 
-https://i.postimg.cc/VzNqyX80/4.png
+<img width="1680" height="897" alt="Image" src="https://github.com/user-attachments/assets/722bf740-cd2d-4340-bba1-116467ee0d3f" />
 
-https://i.postimg.cc/rwdRDCVh/5.png
+<img width="1680" height="897" alt="Image" src="https://github.com/user-attachments/assets/f9a9d7c7-e66c-4893-b6fc-dbe7c53de290" />
 
-https://i.postimg.cc/mD4PpvQq/6.png
+<img width="874" height="192" alt="Image" src="https://github.com/user-attachments/assets/c9fd9e84-fc9f-4f5f-946e-4d477c9b9519" />
 
-https://i.postimg.cc/x8TcnLp3/7.png
+<img width="856" height="747" alt="Image" src="https://github.com/user-attachments/assets/4f8f2547-87bd-412c-9606-16602ed4b5bc" />
 
-https://i.postimg.cc/76NfFK9L/8.png
+<img width="880" height="341" alt="Image" src="https://github.com/user-attachments/assets/96344bce-81bf-493d-96f5-4586df16a8e6" />
 
-https://i.postimg.cc/2yc363PR/9.png
+<img width="874" height="315" alt="Image" src="https://github.com/user-attachments/assets/48355501-0c45-4f12-ab55-c5b1d01c03a5" />
 
-https://i.postimg.cc/kMf2whD1/10.png
+<img width="424" height="508" alt="Image" src="https://github.com/user-attachments/assets/216822e8-45ae-4590-8f4c-e2e9b26f59e1" />
+
+<img width="1374" height="412" alt="Image" src="https://github.com/user-attachments/assets/75b1e686-2e0a-40fb-b329-0e6b74250699" />
 
 ---
 
