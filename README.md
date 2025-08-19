@@ -13,6 +13,36 @@ This project is done **manually from AWS Console (no Terraform)** to practice AW
 ---
 
 ## 🛠 Architecture
+
+Key Components & Data Flow:
+    1- Internet Users: Access via ALB DNS name 
+    2- Application Load Balancer (ALB):
+               -  Distributes traffic across AZs
+               -  Health checks on instances (HTTP:80/)
+               -  Security Group: Allows HTTP(80) from 0.0.0.0/0
+
+   3- Auto Scaling Group (ASG):
+          - Min: 2, Desired: 2, Max: 4 instances
+          - Uses Launch Template with:
+             - Amazon Linux 2 AMI
+             - t3.micro instances
+             - User Data bootstrap script
+          - Multi-AZ deployment (spreads instances across availability zones)
+    4- EC2 Instances:
+            - Run web server via User Data script
+            - Security Group: Allows HTTP(80) only from ALB SG, SSH(22) from trusted IP
+            - Automatically register with ALB Target Group
+    5- Monitoring & Alerts:
+            - CloudWatch tracks:
+               - ASG Instance Count
+               - EC2 CPU/Memory
+               - ALB Request Count/4xx/5xx Errors
+            - SNS sends alerts for:
+               - High CPU (>75%)
+               - Failed Health Checks
+               - Scaling Events
+
+
 Architecture Diagram
 
 https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
@@ -21,7 +51,7 @@ https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
 
 ![Image](https://github.com/user-attachments/assets/aa184ebe-f10b-4282-b0d8-a140c9f3e064)
 
----
+_____________________________________________________________
 ## Launch EC2 & Create VPC & Networking
 
 - Create a new VPC (e.g., `10.0.0.0/16`).
@@ -56,7 +86,7 @@ https://i.postimg.cc/SRCDb2Rd/1-8-Fwhw-NQc7977-FCg-W7-TLwo-Q.webp
 Security Groups
 - `web-sg`: Allow **HTTP (80)** from `0.0.0.0/0`, **SSH (22)** only from your IP.
 - `alb-sg`: Allow HTTP (80) from `0.0.0.0/0`, forward to `web-sg`.
---------
+_____________________________________________________________
 Auto Scaling Group
 
 <img width="1391" height="334" alt="Image" src="https://github.com/user-attachments/assets/6b0131ea-ecff-4bec-85f4-725ac0bc48df" />
@@ -89,8 +119,10 @@ Launch Template
 - User data script:
 
 
----
+_____________________________________________________________
+
 Application Load Balancer
+
 Console path: EC2 → Load Balancers → Create load balancer → Application Load Balancer
 
 Name: proj1-alb
@@ -109,17 +141,15 @@ Listeners and routing:
 
 Listener: HTTP : 80 → Default action: Forward to proj1-tg
 
-https://i.postimg.cc/CSXCbz83/1.png
+<img width="1391" height="334" alt="Image" src="https://github.com/user-attachments/assets/94b81796-28a2-4577-991f-8a0c0a6b8f7b" />
+<img width="1615" height="715" alt="Image" src="https://github.com/user-attachments/assets/79ba1caa-fddf-4131-984e-e781776a7944" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/a747977f-1cef-4767-8395-94760fa3f789" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/bde5e07e-a2a7-4a8e-8ebf-39a31852dbed" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/c9827978-bc0b-4026-b379-99940cccc481" />
 
-https://i.postimg.cc/6WWCBRsv/2.png
-
-https://i.postimg.cc/FK9kst64/3.png
-
-https://i.postimg.cc/R0X6Wsrn/4.png
-
-https://i.postimg.cc/nrQCwnXv/5.png
----
+_____________________________________________________________
 Auto Scaling Group
+
 Console path: EC2 → Auto Scaling Groups → Create Auto Scaling group
 
 Name: proj1-asg
@@ -158,53 +188,38 @@ Instance warmup: 180 sec
 
 Monitoring: Enable CloudWatch group metrics collection
 
-https://i.postimg.cc/3Jf30sW-h/1.png
+<img width="1391" height="334" alt="Image" src="https://github.com/user-attachments/assets/5f91ee79-eccc-4630-898e-9101068c1405" />
+<img width="1356" height="744" alt="Image" src="https://github.com/user-attachments/assets/394d9010-7386-47c8-bfc7-7afe80845e0c" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/f4a7bf09-3d7c-48ab-afd3-c8226cc14b81" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/e4473628-9ba1-4b9a-8da0-ae3217b27c7b" />
+<img width="1620" height="719" alt="Image" src="https://github.com/user-attachments/assets/e2b129c9-78c9-4572-82e3-846c7b52b3f4" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/fb8d2bd1-ed93-46f5-a62f-cab5d9400d03" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/e14bee33-9fdc-44e6-b990-62a24f3e4bde" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/576b97c6-1992-45d6-9a67-fe4f36af54db" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/14bc1820-a5c7-422e-9848-312c1f605fb8" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/efc61baf-1500-4a10-bd4e-db1192eb7af5" />
+<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/4da7ec3a-8dbb-4225-a5f3-e5b07d42916f" />
 
-https://i.postimg.cc/YSY7VjR2/2.png
+_____________________________________________________________
 
-https://i.postimg.cc/Xq70pLbX/3.png
-
-https://i.postimg.cc/KzbbyFpP/4.png
-
-https://i.postimg.cc/fLvNzF16/5.png
-
-https://i.postimg.cc/6qjxRZWc/6.png
-
-https://i.postimg.cc/QMrwFmgs/7.png
-
-https://i.postimg.cc/zGh4D6g0/8.png
-
-https://i.postimg.cc/vBYKzmSN/9.png
-
-https://i.postimg.cc/JR9Lwckp/10.png
-
-https://i.postimg.cc/Zn0DGMmP/11.png
-
-```
 RDS
-https://i.postimg.cc/FRS2z689/1.png
 
-https://i.postimg.cc/1XZbqH1D/2.png
 
-https://i.postimg.cc/tgs0QJzn/3.png
-
-https://i.postimg.cc/1z2k9SW-C/4.png
-
-https://i.postimg.cc/GLZRRFVL/5.png
-
-https://i.postimg.cc/BZxrGd2p/6.png
-
-https://i.postimg.cc/fTC1Vm20/7.png
-
-https://i.postimg.cc/cL5jmZNx/8.png
-
-https://i.postimg.cc/3JYPrnBT/9.png
-
-https://i.postimg.cc/wjBZLMZ4/10.png
+h<img width="1680" height="771" alt="Image" src="https://github.com/user-attachments/assets/3788ee62-c1e8-4ed5-a529-9f896adccae2" />
+<img width="1680" height="897" alt="Image" src="https://github.com/user-attachments/assets/097f0d29-bec0-49c1-bfeb-1d5680a1d190" />
+<img width="1636" height="421" alt="Image" src="https://github.com/user-attachments/assets/bad3df00-9aab-4a6f-b5a3-fda77ba4775b" />
+<img width="1574" height="645" alt="Image" src="https://github.com/user-attachments/assets/7108fb39-7f40-4f2f-a07c-8f68beb8b459" />
+<img width="1300" height="663" alt="Image" src="https://github.com/user-attachments/assets/431d3b7b-db32-4f4f-a821-19deedc6612b" />
+<img width="1300" height="719" alt="Image" src="https://github.com/user-attachments/assets/46d2caa8-0c0e-41d0-af38-59b5da775a54" />
+<img width="1584" height="783" alt="Image" src="https://github.com/user-attachments/assets/e032e5da-d05a-462c-8e6c-2e66b7b3f2c2" />
+<img width="1562" height="617" alt="Image" src="https://github.com/user-attachments/assets/26801803-787c-4723-9645-b9207c43ef12" />
+<img width="1122" height="330" alt="Image" src="https://github.com/user-attachments/assets/23f49b03-f45d-4d3c-b255-39f0f3c12930" />
+<img width="1562" height="515" alt="Image" src="https://github.com/user-attachments/assets/8aab7db9-428a-40c5-834f-6fe719102391" />
 
 
 
-```
+_____________________________________________________________
+
 CloudWatch + SNS 
 
 <img width="1663" height="412" alt="Image" src="https://github.com/user-attachments/assets/a45945c1-c4a4-4091-bfc6-513826b70bec" />
